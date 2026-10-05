@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>找到新的入口 · BOXIZEN / WIKI</title>
+  <style>
+    :root{color-scheme:light;--ink:#22352f;--green:#286b58;--muted:#617369}
+    *{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+    main{max-width:650px;margin:9vh auto;padding:32px 24px}small{color:var(--muted);letter-spacing:1px}h1{font-size:30px;line-height:1.35;margin:24px 0 16px}p{margin:14px 0}nav{display:grid;gap:12px;margin:28px 0}a{color:var(--green);text-underline-offset:4px}nav a{display:block;padding:16px 20px;border-radius:12px;background:var(--green);color:white;font-weight:600;text-decoration:none}a:focus-visible{outline:3px solid #70588d;outline-offset:4px}.note{color:var(--muted);font-size:14px}#status{min-height:24px;font-size:14px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <main>
+    <small>BOXIZEN / WIKI</small>
+    <h1>找到新的入口。</h1>
+    <p>前三份期权教程已合并为一份实操指南。记录交易、AI 分析和复盘，请使用 Put 决策档案。</p>
+    <p id="status" role="status">这个地址可能已调整，也可能不存在。请从下面进入。</p>
+    <nav aria-label="期权内容入口">
+      <a id="guide" href="/wiki/options/">期权卖方实操指南 →</a>
+      <a id="decisions" href="/wiki/options/put-decision.html">Put 决策档案 →</a>
+    </nav>
+    <p class="note">旧“记一笔”记录仍可在原来的浏览器中，进入决策档案，点击“读取本浏览器旧记一笔”找回。此页不会读取或修改你的记录。</p>
+    <p><a id="home" href="/wiki/">← 返回 Wiki 首页</a></p>
+    <noscript><p class="note">自动跳转需要 JavaScript；也可以直接点击上面的入口。</p></noscript>
+  </main>
+  <script>
+    (() => {
+      'use strict';
+      const path = window.location.pathname;
+      const base = path === '/wiki' || path.startsWith('/wiki/') ? '/wiki' : '';
+      document.getElementById('guide').href = base + '/options/';
+      document.getElementById('decisions').href = base + '/options/put-decision.html';
+      document.getElementById('home').href = base + '/';
+
+      // Only these two retired pages are aliases. All other missing paths stay here.
+      let target = '';
+      if (path === base + '/options/seller-three-steps.html') {
+        target = base + '/options/#cases';
+      } else if (path === base + '/options/put-checklist.html') {
+        const oldJournal = window.location.hash === '#journal' || window.location.hash === '#panel-3';
+        target = base + (oldJournal ? '/options/put-decision.html' : '/options/#before');
+      }
+      if (target) {
+        document.getElementById('status').textContent = '正在前往合并后的页面；也可以直接点击下面的入口。';
+        // Destinations are fixed same-origin paths; incoming queries are not copied.
+        window.location.replace(target);
+      }
+    })();
+  </script>
+</body>
+</html>

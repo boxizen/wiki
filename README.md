@@ -1,31 +1,17 @@
 # Wiki
 
-学习笔记与交互图解。
+学习笔记与交互图解。期权内容整理为两个页面。
 
-## 期权卖方 · 小白图解
+## 期权卖方实操指南
 
-- [网页入口](https://boxizen.github.io/wiki/options/)
+- [打开实操指南](https://boxizen.github.io/wiki/options/)
 - [HTML 源文件](options/index.html)
 
-以六张可切换图解解释：一份承诺、钱的来去、交易六步、基础指标、场景风险和保护策略。CSS、JavaScript 与 SVG 均内嵌，无需安装依赖或构建；下载 HTML 后可以离线打开。
+合并原“小白图解”“视频三步法”“卖 Put · 从观察到记录”的学习内容，保留五章：开仓前、持仓中、算清结局、保护与应对、指标速查。
 
-## 期权卖方三步法 · 视频拆解与风险保护
+用现金担保 Put、备兑 Call 与领口比较不同结果；可拖动张数、回购款与到期股价，查看承诺、盈亏和保护代价。基础定义与视频出处折叠备查。视频证据限官方章节和可读取画面，未取得完整口播；数值案例为教学补充，不是实时行情或统一交易规则。
 
-- [打开交互图解](https://boxizen.github.io/wiki/options/seller-three-steps.html)
-- [HTML 源文件](options/seller-three-steps.html)
-
-依据 B站视频《期权策略实战｜期权卖方稳赢三步曲》的官方章节和可读取讲义画面，区分视频规则与教程补充。六章解释入场、仓位、风控、观测指标和交易流程，用现金担保 Put、备兑 Call 对比不同场景；拖动到期股价，可以查看保护组合的总损益。
-
-未取得完整口播；证据范围和补充来源见页面底部。“稳赢”不是盈利保证。新页面同样可以下载后离线使用。
-
-## 卖 Put · 从观察到记录
-
-- [打开图解与交易记录](https://boxizen.github.io/wiki/options/put-checklist.html)
-- [HTML 源文件](options/put-checklist.html)
-
-四章串起开仓前六项检查、IV与Greeks、持仓情景处理，以及可填写的交易记录。记录区分计划、持仓浮盈亏、平仓、到期作废和指派后的股票损益；支持JSON完整备份/恢复与CSV汇总。
-
-记录仅保存在当前设备的浏览器中，不会上传到GitHub，不连接券商、不提供行情或自动提醒。请定期导出备份。自动计算仅适用于每张100股、同条款单批现金担保Put；部分处理和多腿组合需另行核对。
+CSS、JavaScript 和 SVG 均内嵌，无依赖、无远程资源，可下载后离线查看。
 
 ## Put 决策档案
 
@@ -34,17 +20,24 @@
 
 每次操作前封存当时的行情、事件、现金、退出计划和理由；实际成交另记。支持部分平仓、部分指派和接股后分批卖股；展期新建关联档案。已封存内容不会随草稿修改而覆盖。
 
-可以生成只含某次决定当时已知信息的 AI 分析材料，或完整复盘材料；支持贴回 AI 意见、记录采纳理由及结构化复盘。页面不在后台运行 AI。提供完整 JSON 备份恢复、时间线 CSV、空白 Markdown 模板。旧“记一笔”可导入保留原文，不补造事前时间或成交流水。
+可以生成只含某次决定当时已知信息的 AI 分析材料，或完整复盘材料；支持贴回 AI 意见、记录采纳理由及结构化复盘。页面不在后台运行 AI。提供完整 JSON 备份恢复、时间线 CSV、空白 Markdown 模板。
 
-所有记录仅在当前浏览器。现金担保不保证亏损上限；保护或多腿调整需要人工核对完整损益。
+所有记录仅在当前浏览器，不上传 GitHub、不连接券商或行情，也不发送提醒。换设备、浏览器或本地文件与线上页面之间不会自动同步，请定期导出 JSON 备份。现金担保不保证亏损上限；保护、多腿与备兑 Call 需要人工核对完整损益。
+
+## 旧页面与记录
+
+`options/` 只保留 `index.html` 和 `put-decision.html` 两个 HTML。旧 `seller-three-steps.html` 与 `put-checklist.html` 已删除；站点根目录的 `404.html` 精确识别这两个旧地址，在启用 JavaScript 的浏览器中引导到合并页。旧记录锚点 `#journal`、`#panel-3` 引导到决策档案。其他未知地址不会自动跳转。
+
+这是 GitHub Pages 的自定义 404 兼容处理，旧地址初始 HTTP 状态仍为 404，不是服务器端 301。关闭 JavaScript 时可手动点击新入口。
+
+原浏览器的旧“记一笔”存储不会被删除。进入决策档案，点击“读取本浏览器旧‘记一笔’”，或导入旧 JSON 备份，保留原文而不伪造历史决定、时间或成交流水。原有决策档案的存储与计算逻辑保持兼容。
 
 ## GitHub Pages
 
-发布源使用 `main` 分支的根目录 `/`：在仓库 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，分支选择 **main**，目录选择 **/(root)**，保存。
+发布源使用 `main` 分支的根目录 `/`。根目录 `.nojekyll` 让 Pages 直接发布静态文件；推送到 `main` 后自动更新。
 
-根目录的 `.nojekyll` 让 Pages 直接发布静态文件。此后推送到 `main` 会自动更新站点。
+- [站点首页](https://boxizen.github.io/wiki/)
+- [实操指南](https://boxizen.github.io/wiki/options/)
+- [决策档案](https://boxizen.github.io/wiki/options/put-decision.html)
 
-- 站点首页：<https://boxizen.github.io/wiki/>
-- 期权图解：<https://boxizen.github.io/wiki/options/>
-
-图中数字是教学假设，不是实时行情。资料来源和计算口径见网页底部。
+图中数字是教学假设。资料来源和计算口径见各页底部。
