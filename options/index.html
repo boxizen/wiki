@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>期权卖方 · 一张图一件事</title>
+<style>
+:root{--paper:#f7f5ef;--ink:#22352f;--muted:#60726b;--green:#286b58;--mint:#e0eee5;--orange:#bc552f;--peach:#fae8dc;--purple:#70588d;--lilac:#eee8f5;--line:#d7ded5;--white:#fffefa}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Yahei",sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--purple);outline-offset:4px}a{color:var(--green)}button{color:inherit}h1,h2,h3,p{margin:0}h1{font-size:clamp(30px,4vw,46px);letter-spacing:-.05em;line-height:1.25}h2{font-size:clamp(26px,3vw,38px);line-height:1.3;letter-spacing:-.035em}h3{font-size:22px;line-height:1.45}.muted,small{color:var(--muted)}small{font-size:14px}strong{font-weight:650}.shell{max-width:1160px;margin:auto;padding:38px 32px 20px}.brand{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:20px;font-size:13px;font-weight:600;letter-spacing:.12em}.brand span:last-child{letter-spacing:0;color:var(--muted)}.intro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}.intro p{color:var(--muted);max-width:380px;font-size:16px}.chapter-nav{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-bottom:24px}.chapter-nav button{border:0;border-radius:13px;padding:12px 6px;background:#e9ede5;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px}.chapter-nav button[aria-selected=true]{background:var(--green);color:#fff}.chapter-nav b{font-size:12px;opacity:.7}.stage{background:var(--white);border:1px solid var(--line);border-radius:26px;padding:30px;min-height:620px;box-shadow:0 8px 28px #18372b06}.stage[hidden]{display:none}.section-top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:22px}.eyebrow{color:var(--green);font-size:13px;font-weight:650;letter-spacing:.09em;margin-bottom:8px}.switches{display:flex;flex-wrap:wrap;gap:8px;margin:17px 0}.switches button,.choice{border:1px solid var(--line);background:transparent;border-radius:12px;padding:10px 16px;font-size:15px;min-height:44px}.switches button[aria-pressed=true],.choice[aria-pressed=true]{background:var(--ink);color:var(--white);border-color:var(--ink)}.hero-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:30px;align-items:center}.picture{background:var(--mint);border-radius:22px;padding:14px;min-width:0}.picture svg{display:block;width:100%;height:auto}.big-statement{font-size:clamp(25px,3vw,36px);font-weight:600;line-height:1.45;letter-spacing:-.04em;margin:15px 0}.big-statement em{font-style:normal;color:var(--green)}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{font-size:13px;padding:3px 9px;border-radius:6px;background:var(--mint);color:var(--green)}.risk-line{background:var(--peach);color:#843b24;padding:13px 17px;border-radius:12px;margin-top:18px;font-size:16px}.footnote{font-size:13px;color:var(--muted);margin-top:18px}.footnote a{text-underline-offset:3px}.tiny{font-size:13px;color:var(--muted)}.rule{margin:24px 0;border:0;border-top:1px solid var(--line)}details{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;font-size:15px;font-weight:600;padding:5px 0;min-height:36px}details p,details li{font-size:15px;color:var(--muted);margin:9px 0}details ul{padding-left:20px}.counter{font-size:44px;font-weight:650;letter-spacing:-.04em;line-height:1.2}.counter.green{color:var(--green)}.counter.orange{color:var(--orange)}.money-flow{display:flex;align-items:stretch;gap:12px;margin:25px 0}.money-card{background:var(--mint);border-radius:18px;flex:1;min-width:0;padding:24px 18px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:9px}.money-card.cost{background:var(--peach)}.money-card.result{background:var(--ink);color:#fff}.money-card.result .tiny{color:#d0ded6}.money-card.result .counter{color:#d7efd9}.money-card .symbol{font-size:32px;line-height:1.3}.operator{font-size:30px;display:flex;align-items:center;justify-content:center;color:var(--muted)}.takeaway{font-size:22px;font-weight:600;line-height:1.5}.number-stones{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:22px 0 30px}.number-stones button{border:0;background:#edf0e9;border-radius:16px;padding:13px 4px;font-size:15px;position:relative}.number-stones button:not(:last-child):after{content:'→';position:absolute;right:-12px;top:40%;color:var(--muted);z-index:1}.number-stones button b{display:block;font-size:25px;font-weight:500}.number-stones button[aria-pressed=true]{background:var(--green);color:#fff}.lesson{display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:center}.lesson-picture{border-radius:22px;background:var(--mint);padding:22px}.lesson-picture svg{width:100%;display:block}.action-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.action-pair>div{padding:17px;border-radius:14px;background:var(--mint)}.action-pair>div:first-child{background:var(--peach)}.action-pair span{font-size:13px;display:block;color:var(--muted);margin-bottom:4px}.action-pair p{font-size:17px;line-height:1.55}.metric-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.metric-tabs button{border:1px solid var(--line);border-radius:14px;padding:13px 8px;background:transparent;font-size:15px}.metric-tabs button b{display:block;font-size:23px;line-height:1.3}.metric-tabs button[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}.metric-visual{min-height:230px;background:var(--mint);border-radius:20px;padding:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:15px}.metric-visual svg{width:100%;max-width:400px;max-height:220px}.metric-big{font-size:54px;font-weight:600;line-height:1.15;color:var(--green)}.toolbox{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}.toolbox>div{background:#f1f3ed;padding:16px;border-radius:12px}.toolbox h3{font-size:17px}.toolbox p{margin-bottom:0}.scenario-layout{display:grid;grid-template-columns:230px 1fr;gap:28px}.scenario-menu{display:flex;flex-direction:column;gap:8px}.scenario-menu button{border:1px solid var(--line);background:transparent;text-align:left;padding:12px 15px;border-radius:12px;font-size:15px}.scenario-menu button[aria-pressed=true]{background:var(--orange);color:#fff;border-color:var(--orange)}.scenario-path{display:grid;grid-template-columns:110px 1fr;gap:15px;align-items:center}.scenario-icon{border-radius:20px;background:var(--peach);padding:10px}.scenario-icon svg{width:100%;display:block}.scenario-message{font-size:26px;font-weight:600;line-height:1.5}.decision-tree{display:flex;flex-direction:column;gap:0;margin-top:23px}.decision-tree>div{padding:13px 18px;background:var(--mint);border-radius:12px}.decision-tree>span{padding:0 18px;color:var(--muted);line-height:1.25}.decision-tree small{display:block}.decision-tree>div:last-child{background:var(--peach)}.protection-intro{display:flex;align-items:center;gap:15px;padding:16px 20px;background:var(--mint);border-radius:15px;font-size:17px;margin:18px 0}.protection-intro .big-icon{font-size:34px}.combo{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:16px 0}.contract{padding:10px 15px;border-radius:12px;background:var(--mint);font-size:15px}.contract.protect{background:var(--lilac);color:var(--purple)}.contract em{display:block;font-style:normal;font-size:12px;color:var(--muted)}.hedge-metrics{display:flex;gap:25px;flex-wrap:wrap;align-items:start;margin:20px 0}.hedge-metrics>div{flex:1;min-width:130px}.hedge-metrics .counter{font-size:32px;margin-top:4px}.plot-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;align-items:center}.chart{width:100%;min-width:0}.chart svg{display:block;width:100%;height:280px;overflow:visible}.price-picker{background:#f0f2ec;padding:22px;border-radius:18px}.price-picker label{display:block;font-size:15px}.price-picker output{font-size:30px;font-weight:650;display:block;margin:4px 0 12px}.price-picker input{width:100%;accent-color:var(--green);min-height:30px}.price-picker .counter{font-size:36px;margin:10px 0}.pro-boundary{font-size:14px;background:var(--peach);border-radius:13px;padding:14px 17px;margin-top:18px}.bottom-nav{display:flex;justify-content:space-between;align-items:center;margin:20px 0;gap:15px}.bottom-nav button{padding:11px 20px;border-radius:12px;border:1px solid var(--line);background:var(--white);font-size:15px}.bottom-nav button:last-child{background:var(--green);color:white;border-color:var(--green)}.bottom-nav button:disabled{opacity:.35;cursor:default}.dots{color:var(--muted);font-size:14px}.source-foot{font-size:13px;color:var(--muted);margin-bottom:26px}.source-foot details{margin-top:9px}.source-list{display:grid;grid-template-columns:1fr 1fr;gap:5px 25px;margin:12px 0}.source-list a{font-size:13px}.account-grid{display:flex;gap:12px;margin-top:15px;flex-wrap:wrap}.account-grid>div{padding:15px;background:var(--mint);border-radius:12px;flex:1;min-width:160px}.account-grid strong{font-size:24px;display:block}.sr{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}.no-js{padding:16px;background:var(--peach)}
+@media(max-width:780px){.shell{padding:24px 18px}.intro{display:block}.intro p{margin-top:13px;max-width:none}.chapter-nav{grid-template-columns:repeat(3,1fr)}.stage{padding:24px;min-height:0}.hero-grid,.plot-grid{grid-template-columns:1fr}.picture{max-width:520px;margin:auto;width:100%}.section-top{display:block}.lesson{grid-template-columns:160px 1fr;gap:20px}.scenario-layout{grid-template-columns:1fr}.scenario-menu{flex-direction:row;flex-wrap:wrap}.scenario-menu button{flex:1 0 130px}.money-flow{gap:8px}.counter{font-size:34px}.money-card{padding:20px 12px}.source-list{grid-template-columns:1fr}}
+@media(max-width:480px){body{font-size:16px}.shell{padding:20px 12px}.brand{font-size:11px;letter-spacing:.03em}.brand span:last-child{max-width:150px;text-align:right}.stage{padding:21px 16px;border-radius:19px}.chapter-nav button{font-size:13px;padding:10px 4px}.section-top{margin-bottom:15px}.money-flow{flex-direction:column}.money-card{padding:18px;flex-direction:row;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.money-card .symbol{display:none}.money-card .tiny{flex-basis:100%}.operator{line-height:1;height:20px}.counter{font-size:32px}.number-stones{grid-template-columns:repeat(3,1fr);gap:10px}.number-stones button:nth-child(3):after{display:none}.lesson{grid-template-columns:1fr}.lesson-picture{max-width:170px;margin:auto}.action-pair,.toolbox{grid-template-columns:1fr}.metric-tabs{grid-template-columns:repeat(2,1fr)}.scenario-path{grid-template-columns:75px 1fr;gap:12px}.scenario-message{font-size:23px}.takeaway{font-size:20px}.hedge-metrics{gap:15px}.source-foot{font-size:12px}.metric-big{font-size:44px}.chart svg{height:255px}.intro h1{font-size:32px}.bottom-nav button{padding:10px 14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white}.shell{max-width:none}.chapter-nav,.bottom-nav,.switches,.scenario-menu,.number-stones,.metric-tabs{display:none}.stage[hidden]{display:block!important}.stage{break-inside:avoid;margin:20px 0;box-shadow:none}.stage{min-height:0}details{display:block}.source-foot{page-break-before:auto}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand"><span>小白图解 · OPTIONS</span><span>一张图，一件事。慢慢看就好。</span></div>
+    <div class="intro"><h1>收钱之后，<br>你答应了什么？</h1><p>期权卖方的第一课。<br>先看懂承诺，再看指标和保护。</p></div>
+  </header>
+  <nav class="chapter-nav" role="tablist" aria-label="学习章节">
+    <button type="button" id="tab-0" role="tab" aria-controls="panel-0" aria-selected="true"><b>01</b>一份承诺</button>
+    <button type="button" id="tab-1" role="tab" aria-controls="panel-1" aria-selected="false"><b>02</b>钱的来去</button>
+    <button type="button" id="tab-2" role="tab" aria-controls="panel-2" aria-selected="false"><b>03</b>交易六步</button>
+    <button type="button" id="tab-3" role="tab" aria-controls="panel-3" aria-selected="false"><b>04</b>看仪表盘</button>
+    <button type="button" id="tab-4" role="tab" aria-controls="panel-4" aria-selected="false"><b>05</b>遇事怎么办</button>
+    <button type="button" id="tab-5" role="tab" aria-controls="panel-5" aria-selected="false"><b>06</b>怎样保护</button>
+  </nav>
+  <main>
+    <section class="stage" id="panel-0" role="tabpanel" aria-labelledby="tab-0">
+      <div class="section-top"><div><p class="eyebrow">先记住这个交换</p><h2>别人先付钱，你答应履约。</h2></div></div>
+      <div class="switches" id="promise-controls" aria-label="承诺类型"><button type="button" data-kind="put" aria-pressed="true">现金担保卖 Put</button><button type="button" data-kind="call" aria-pressed="false">持股卖 Call</button></div>
+      <div class="hero-grid">
+        <div class="picture" id="promise-picture"></div>
+        <div id="promise-copy" aria-live="polite"></div>
+      </div>
+      <details><summary>三个词，先认得就够了</summary><div class="toolbox"><div><h3>权利金 = 对方先付的钱</h3><p>报价 2.00 通常是每股 2 美元。一张对应 100 股，就是 200 美元。</p></div><div><h3>行权价 = 合同里的约定价</h3><p>到期日 = 合同的期限。美式股票期权可能提前指派，也就是提前要求你履约。</p></div></div></details>
+      <p class="footnote">机制参考：<a href="https://www.optionseducation.org/strategies/all-strategies/cash-secured-put" target="_blank" rel="noopener">OIC 现金担保 Put</a> · <a href="https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write" target="_blank" rel="noopener">备兑 Call</a></p>
+    </section>
+    <section class="stage" id="panel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
+      <p class="eyebrow">所有按钮都从“先收 200”开始</p><h2>收到的钱，和赚到的钱，不一样。</h2>
+      <div class="switches" id="money-controls" aria-label="切换交易结局">
+        <button type="button" data-scenario="close50" aria-pressed="true">花 50 买回</button><button type="button" data-scenario="close400" aria-pressed="false">花 400 买回</button><button type="button" data-scenario="expire" aria-pressed="false">到期作废</button><button type="button" data-scenario="assign" aria-pressed="false">跌到 70，被指派</button>
+      </div>
+      <div id="money-story" aria-live="polite"></div>
+      <details><summary>为什么原来卖 200，后来可能只值 50？</summary><p>把 Put 想成一份防跌保障。股价涨了、剩余时间少了、市场给波动的报价下降，都可能让这份保障变便宜。这里的 50 是假设市场报价，不能只靠股价推算。</p></details>
+      <details><summary>在嘉信，买回来是什么操作？</summary><p>找到原来的期权持仓 → 关闭持仓 → <strong>Buy to Close（买入平仓）</strong>。买回同一标的、类型、行权价、到期日和数量。</p><p>示例：1 张、限价 <strong>0.50</strong>，约付 50 美元另加费用。必须实际成交、且此前未被指派，才能结束对应义务。0.50 不保证成交。<a href="https://www.schwab.com/content/how-to-close-or-roll-option-spread-schwab-mobile" target="_blank" rel="noopener">嘉信官方操作演示</a></p></details>
+    </section>
+    <section class="stage" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+      <p class="eyebrow">点一块踏脚石，看一步</p><h2>交易前后，都有事情要做。</h2>
+      <div class="number-stones" id="step-controls" aria-label="选择交易环节"></div>
+      <div class="lesson" id="step-content" aria-live="polite"></div>
+      <details><summary>放回你的 18 万美元账户里</summary><div class="account-grid"><div><small>账户现金</small><strong>$180,000</strong></div><div><small>你给出的参与上限</small><strong>$54,000</strong></div><div><small>5% 本金的数量级</small><strong>$9,000</strong></div></div><p>5.4 万是上限，不必用满；接到股票后也继续占用参与额度。9,000 是你希望控制的损失尺度，不是保证。真正的回撤从净值高点计算。</p><p>只卖示例里的 1 张 95 Put，股票归零就可能亏 9,300，已超过这个尺度。每周只看一两次，也仍须能处理异常与指派通知；做不到就先模拟。</p></details>
+      <p class="footnote">指派规则：<a href="https://www.finra.org/investors/insights/trading-options-understanding-assignment" target="_blank" rel="noopener">FINRA：行权与指派</a></p>
+    </section>
+    <section class="stage" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+      <p class="eyebrow">像开车看仪表：帮助观察，不替你开车</p><h2>先认四块表，其余以后学。</h2>
+      <div class="metric-tabs" id="metric-controls" aria-label="选择基础指标"></div>
+      <div class="hero-grid" id="metric-content" aria-live="polite"></div>
+      <details><summary>打开工具箱：RV、DVOL、Gamma、Theta、Vega 等</summary><div class="toolbox" id="toolbox"></div></details>
+      <p class="footnote">指标参考：<a href="https://www.schwab.com/learn/story/options-delta-probability-and-other-risk-analytics" target="_blank" rel="noopener">Schwab：Delta 与风险</a> · <a href="https://www.optionseducation.org/advancedconcepts/volatility-the-greeks" target="_blank" rel="noopener">OIC：波动率与 Greeks</a></p>
+    </section>
+    <section class="stage" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+      <p class="eyebrow">选一种情况，看“风险 → 动作 → 代价”</p><h2>收了权利金，也会遇到坏天气。</h2>
+      <div class="scenario-layout" style="margin-top:25px"><div class="scenario-menu" id="risk-controls" aria-label="选择风险场景"></div><div id="risk-content" aria-live="polite"></div></div>
+      <details><summary>“止损”和“展期”能保证不亏吗？</summary><p>止损是退出计划，但跳空、停牌或报价差，可能让你无法按计划价格成交。</p><p>展期 = 平掉旧合同 + 卖出新合同。旧亏损仍然存在，新收到的钱又对应新义务；不是一键修复亏损。</p></details>
+    </section>
+    <section class="stage" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+      <p class="eyebrow">第一层先减负担，第二层才买保护</p><h2>少做一点，或花钱买一道保护。</h2>
+      <div class="protection-intro"><span class="big-icon" aria-hidden="true">↘</span><div><strong>最容易理解：减少数量，或买回平仓。</strong><br><small>少收一些收入，或确认亏损，换取更少的未了义务。</small></div></div>
+      <details id="protection-details"><summary>再看一层：三种保护，分别付出什么？</summary>
+        <div class="switches" id="hedge-controls" aria-label="选择保护策略"></div>
+        <div id="hedge-description"></div>
+        <div class="hedge-metrics" id="hedge-limits"></div>
+        <div class="plot-grid"><div class="chart" id="payoff-chart"></div><div class="price-picker"><label for="stock-price">假设到期股价</label><output id="stock-price-output" for="stock-price">$70</output><input id="stock-price" type="range" min="0" max="130" step="1" value="70"><small>整套持仓到期总损益</small><div class="counter" id="payoff-number" aria-live="polite"></div><p class="tiny" id="payoff-caption"></p></div></div>
+        <div class="pro-boundary"><strong>保护有边界：</strong>只覆盖匹配的标的、股数与期限；组合须完整且正确处理。卖方腿仍可能提前指派；到期只处理一条腿或留下股票，也会改变后续风险。它不保证全账户回撤 ≤ 5%。</div>
+      </details>
+      <div class="risk-line">有备兑 Call 时，减股前或同时处理对应空头 Call，避免留下裸卖义务。只平 Call，股票仍会跌。</div>
+      <details><summary>“买保护”与“展期、动态对冲”有什么不同？</summary><p>买保护 Put：拿到有效期内按约定价卖股的权利，保费是成本。对已有亏损，也不能一笔勾销。</p><p>展期：换一份新合同，没有自动增加下跌保护。动态 Delta 对冲：随行情反复调整股票，仍有跳空风险和成本；按你每周查看一两次的安排，目前不适合作为默认方案。</p></details>
+      <p class="footnote">保护策略参考：<a href="https://www.optionseducation.org/strategies/all-strategies/bull-put-spread-credit-put-spread" target="_blank" rel="noopener">Put 信用价差</a> · <a href="https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put" target="_blank" rel="noopener">保护 Put</a> · <a href="https://www.optionseducation.org/strategies/all-strategies/collar-protective-collar" target="_blank" rel="noopener">领口 Collar</a></p>
+    </section>
+  </main>
+  <div class="bottom-nav"><button type="button" id="previous">← 上一张</button><span class="dots" id="page-indicator">1 / 6</span><button type="button" id="next">接着看：钱的来去 →</button></div>
+  <footer class="source-foot">
+    <p>所有数字均为教学假设，非实时行情或下单建议。按普通美股股票期权每张 100 股计算（调整合约例外），金额为美元，未计费用、税、股息与利息。</p>
+    <details><summary>官方来源与计算口径</summary><div class="source-list">
+      <a href="https://www.optionseducation.org/strategies/all-strategies/cash-secured-put" target="_blank" rel="noopener">OIC · 现金担保 Put</a><a href="https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write" target="_blank" rel="noopener">OIC · 备兑 Call</a>
+      <a href="https://www.finra.org/investors/insights/trading-options-understanding-assignment" target="_blank" rel="noopener">FINRA · 行权与指派</a><a href="https://www.schwab.com/learn/story/options-delta-probability-and-other-risk-analytics" target="_blank" rel="noopener">Schwab · Delta 与风险</a>
+      <a href="https://www.optionseducation.org/news/understanding-the-bid-and-ask-prices-for-options" target="_blank" rel="noopener">OIC · Bid 与 Ask</a><a href="https://www.schwab.com/learn/story/viewing-options-volatility-through-different-lenses" target="_blank" rel="noopener">Schwab · IV 历史比较口径</a>
+      <a href="https://insights.deribit.com/exchange-updates/deribit-launches-volatility-index/" target="_blank" rel="noopener">Deribit · DVOL 定义</a><a href="https://www.schwab.com/learn/story/gamma-scalping-primer" target="_blank" rel="noopener">Schwab · 动态 Delta 管理</a>
+      <a href="https://www.optionseducation.org/strategies/all-strategies/bull-put-spread-credit-put-spread" target="_blank" rel="noopener">OIC · 牛市 Put 信用价差</a><a href="https://www.optionseducation.org/strategies/all-strategies/collar-protective-collar" target="_blank" rel="noopener">OIC · Collar</a>
+    </div><p>损益图由示例现金流独立计算：卖 95 Put 收 2；卖 95 Put／买 85 Put 净收 1.5；股价成本 100／买 90 Put 付 3；领口再卖 110 Call 收 2。显示到期总体损益，提前平仓报价还受时间、IV 等影响。各策略是独立例子；后来才加保护，之前亏损仍须计入。</p><p>价差权限、现金要求和指派处理需核实本人嘉信账户。资料整理：2026-10-05。</p></details>
+  </footer>
+  <noscript><p class="no-js">请在启用 JavaScript 的浏览器中打开，查看可切换图解。本文件离线可用。</p></noscript>
+</div>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const money=n=>(n<0?'−':'')+'$'+Math.abs(n).toLocaleString('en-US',{maximumFractionDigits:0});
+const svg=(body,label,view='0 0 420 310')=>`<svg viewBox="${view}" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+const ink='#22352f',green='#286b58',orange='#bc552f',purple='#70588d';
+function illustration(type){
+ const common='fill="none" stroke="'+green+'" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"';
+ const paths={
+  contract:`<rect x="55" y="20" width="105" height="145" rx="12" fill="#fffefa" stroke="${green}" stroke-width="5"/><path d="M78 60h56M78 82h56M78 105h27" ${common}/><circle cx="144" cy="143" r="32" fill="#f4d6b2"/><path d="m129 143 10 10 20-23" ${common}/>` ,
+  wallet:`<rect x="25" y="55" width="155" height="112" rx="20" fill="#fffefa" stroke="${green}" stroke-width="5"/><path d="M42 56V39l120-18v35" ${common}/><rect x="126" y="93" width="61" height="42" rx="12" fill="#f4d6b2" stroke="${green}" stroke-width="5"/><circle cx="147" cy="114" r="5" fill="${green}"/>`,
+  inspect:`<rect x="29" y="28" width="106" height="139" rx="13" fill="#fffefa" stroke="${green}" stroke-width="5"/><path d="M48 62h46M48 88h35M48 114h22" ${common}/><circle cx="133" cy="114" r="39" fill="#dbe9dc" stroke="${green}" stroke-width="6"/><path d="m162 145 26 30" ${common}/>`,
+  trade:`<path d="M30 63h147l-24-22M180 126H33l24 22" ${common}/><rect x="36" y="25" width="37" height="29" rx="5" fill="#f4d6b2"/><rect x="132" y="145" width="37" height="29" rx="5" fill="#f4d6b2"/>`,
+  bell:`<path d="M47 138c22-17 14-48 20-74 10-44 78-43 87 0 6 26-1 57 20 74z" fill="#fffefa" stroke="${green}" stroke-width="6"/><path d="M94 156q15 28 32 0M109 21v-9" ${common}/><circle cx="170" cy="40" r="19" fill="#bc552f"/><text x="170" y="49" text-anchor="middle" font-size="29" fill="white">!</text>`,
+  end:`<path d="M105 17v48M42 99V70h126v29" ${common}/><rect x="16" y="103" width="54" height="55" rx="13" fill="#dbe9dc" stroke="${green}" stroke-width="4"/><rect x="78" y="103" width="54" height="55" rx="13" fill="#f4d6b2" stroke="${green}" stroke-width="4"/><rect x="140" y="103" width="54" height="55" rx="13" fill="#e4dbee" stroke="${green}" stroke-width="4"/><path d="M105 71v29" ${common}/>` ,
+  fall:`<path d="m20 40 45 42 29-20 52 65 42 20" fill="none" stroke="${orange}" stroke-width="9" stroke-linecap="round"/><path d="m147 149 42 0 0-40" fill="none" stroke="${orange}" stroke-width="9"/>`,
+  rise:`<path d="m20 145 45-42 29 20 52-65 42-20" fill="none" stroke="${orange}" stroke-width="9" stroke-linecap="round"/><path d="m147 36 42 0 0 40" fill="none" stroke="${orange}" stroke-width="9"/>`,
+  time:`<path d="M55 25h100M55 165h100M66 26q-2 45 36 67-38 24-36 71M144 26q2 45-36 67 38 24 36 71" ${common}/><path d="m82 65 23 23 23-23zm-1 83 24-29 24 29" fill="#bc552f"/>`,
+  stop:`<path d="M73 24h65l47 47v65l-47 47H73l-47-47V71z" fill="#bc552f"/><path d="M60 104h90" stroke="#fffefa" stroke-width="9" stroke-linecap="round"/>`
+ };
+ return svg(paths[type]||paths.contract,'图示：'+type,'0 0 210 200');
+}
+function setPressed(parent,key,value){parent.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset[key]===String(value))));}
+function renderPromise(kind){
+ const put=kind==='put';setPressed($('promise-controls'),'kind',kind);
+ $('promise-picture').innerHTML=svg(`<circle cx="93" cy="119" r="60" fill="#fffefa"/><circle cx="329" cy="119" r="60" fill="#fffefa"/><text x="93" y="129" text-anchor="middle" font-size="28" fill="${ink}">买方</text><text x="329" y="129" text-anchor="middle" font-size="28" fill="${ink}">你</text><path d="M148 97h117l-13-10m13 10-13 10" fill="none" stroke="${green}" stroke-width="5"/><text x="207" y="75" text-anchor="middle" font-size="24" font-weight="600" fill="${green}">先付 $200</text><path d="M269 145H151l13-10m-13 10 13 10" fill="none" stroke="${orange}" stroke-width="5"/><text x="210" y="180" text-anchor="middle" font-size="19" fill="${orange}">你给出承诺</text><rect x="64" y="211" width="292" height="71" rx="15" fill="#fffefa"/><text x="210" y="242" text-anchor="middle" font-size="21" font-weight="600" fill="${ink}">${put?'按 $95 买入 100 股':'按 $105 卖出 100 股'}</text><text x="210" y="267" text-anchor="middle" font-size="16" fill="#60726b">${put?'先备好 $9,500 接股款':'先持有 100 股，示例成本 $100／股'}</text>`,put?'买方付200美元，你承诺以每股95美元买入100股':'买方付200美元，你承诺以每股105美元卖出已有100股');
+ $('promise-copy').innerHTML=put?`<div class="chips"><span class="chip">现金担保 Put</span><span class="chip">可能买入股票</span></div><p class="big-statement">“你要卖给我时，<br>我就按 <em>95 美元</em>买。”</p><p>收 200，答应买 100 股。<br>收到的钱，就是这份承诺的报酬。</p><div class="risk-line"><strong>最怕：股票大跌。</strong><br>市价跌到 70，你仍可能得按 95 买。</div>`:`<div class="chips"><span class="chip">备兑 Call</span><span class="chip">可能交出股票</span></div><p class="big-statement">“你要买走时，<br>我就按 <em>105 美元</em>卖。”</p><p>先有 100 股，再收 200。<br>别人取得选择权，你承担交股义务。</p><div class="risk-line"><strong>下跌仍会亏；上涨可能少赚。</strong><br>涨到 120，也可能得按 105 交股。</div>`;
+}
+$('promise-controls').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderPromise(b.dataset.kind)});
+const moneyStories={
+ close50:{cost:'买回同一张 Put',amount:50,result:150,symbol:'−',last:'整笔毛利',tag:'买回成交，且此前未指派',summary:'200 − 50 = 150。花 50 退出，整笔仍然赚钱。',detail:'如果继续等，最多再多赚 50，却还要承担后面的下跌与指派风险。'},
+ close400:{cost:'买回同一张 Put',amount:400,result:-200,symbol:'−',last:'整笔毛亏',tag:'退出可能需要认亏',summary:'200 − 400 = −200。先收到钱，不保证最后赚钱。',detail:'买回价格由市场决定，可能比你当初卖出的价格更高。'},
+ expire:{cost:'最终未行权而作废',amount:0,result:200,symbol:'−',last:'整笔毛利',tag:'假设最终没有指派',summary:'200 − 0 = 200。到期不会再发一笔 200。',detail:'钱开仓时已经收到了。此前一直承担义务；到期后仍要核对指派与实际持仓。'},
+ assign:{cost:'股票按市价少值',amount:2500,result:-2300,symbol:'−',last:'整笔净值变化',tag:'按到期股价 70 计价',summary:'付 9,500，收到只值 7,000 的股票。加上先收的 200，仍亏 2,300。',detail:'现金足够买股，只解决“付得起”，不保证买到的股票不会跌。接股后还可能继续跌。'}
+};
+function renderMoney(key){const s=moneyStories[key];setPressed($('money-controls'),'scenario',key);$('money-story').innerHTML=`<div class="money-flow"><div class="money-card"><span class="symbol" aria-hidden="true">↓</span><span>开仓已收</span><strong class="counter">$200</strong><span class="tiny">卖 95 Put，报价 2 × 100 股</span></div><span class="operator" aria-hidden="true">${s.symbol}</span><div class="money-card cost"><span class="symbol" aria-hidden="true">↑</span><span>${s.cost}</span><strong class="counter">${money(s.amount)}</strong><span class="tiny">${key==='assign'?'(95 − 70) × 100 股':key==='expire'?'买回成本为 0':`每股 ${(s.amount/100).toFixed(2)} × 100 股`}</span></div><span class="operator" aria-hidden="true">=</span><div class="money-card result"><span class="symbol" aria-hidden="true">${s.result<0?'↘':'✓'}</span><span>${s.last}</span><strong class="counter" style="${s.result<0?'color:#ffd2b9':''}">${money(s.result)}</strong><span class="tiny">${s.tag}</span></div></div><p class="takeaway">${s.summary}</p><p class="muted" style="margin-top:10px">${s.detail}</p><p class="tiny" style="margin-top:13px">以上尚未扣除费用；股票未卖时按市价计算资产变化。</p>`;}
+$('money-controls').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderMoney(b.dataset.scenario)});
+const steps=[
+ {name:'选承诺',pic:'contract',title:'真愿意买，或真愿意卖吗？',main:'先想清楚股票和约定价，再看能收多少钱。',risk:'只因权利金高，就答应接一只不想持有的股票。',act:'说不清持有理由，就先不交易。'},
+ {name:'算资金',pic:'wallet',title:'全部要求你接股，也付得起吗？',main:'95 × 100 × 1 张 = 预留 9,500 美元，另留费用。',risk:'有钱买，不等于亏得起；多只股票也可能一起跌。',act:'合算全账户接股款，再算大跌损失；太大就减少张数。'},
+ {name:'查合同',pic:'inspect',title:'认清“买什么、何时到期、多少钱”。',main:'查类型、行权价、到期日、张数和乘数，再查报价、财报与除息。',risk:'选错合约，或遇到财报跳空。',act:'逐项核对；不愿承担的事件，避开或提前处理。'},
+ {name:'开仓',pic:'trade',title:'卖出开仓：Sell to Open。',main:'用限价下单；成交后核对数量、成交价和费用。',risk:'报价 2.00 误当一张只值 2 美元；挂单误当成交。',act:'通常报价 × 100；检查 Filled（已成交）。备兑 Call 要有足够股票。'},
+ {name:'检查',pic:'bell',title:'不是开完仓，就可以完全忘掉。',main:'看现金、买回价、到期和事件；异常通知也要能处理。',risk:'美式期权可能提前指派；少看账户不代表风险变小。',act:'设置提醒并安排处理时间；做不到时，先只模拟。'},
+ {name:'结束',pic:'end',title:'买回、作废、指派：三种结局。',main:'买回结束承诺；作废后留住权利金；指派则按约定买股或交股。',risk:'没成交就以为结束；只记权利金、不记股票浮亏。',act:'核对真实持仓，合计股票 + 期权 − 费用。下一笔重新决定。'}
+];
+$('step-controls').innerHTML=steps.map((s,i)=>`<button type="button" data-step="${i}" aria-pressed="${i===0}"><b>${i+1}</b>${s.name}</button>`).join('');
+function renderStep(i){const s=steps[i];setPressed($('step-controls'),'step',i);$('step-content').innerHTML=`<div class="lesson-picture">${illustration(s.pic)}</div><div><h3>${s.title}</h3><p style="margin-top:9px">${s.main}</p><div class="action-pair"><div><span>这里可能出什么事</span><p>${s.risk}</p></div><div><span>这里先做什么</span><p>${s.act}</p></div></div></div>`;}
+$('step-controls').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderStep(Number(b.dataset.step))});
+const metrics=[
+ {code:'IV',label:'波动的报价',title:'像“保障报价”的冷热表。',text:'它是从期权价格倒推的未来波动定价。IV 越高，保障通常越贵。',limit:'高 IV 不保证值得卖，也不告诉你会涨还是跌。',visual:svg(`<path d="M30 155q30-115 60 0t60 0t60 0t60 0t60 0" stroke="${green}" stroke-width="6" fill="none"/><path d="M28 211h318" stroke="#aebfb4" stroke-width="2"/><text x="190" y="252" font-size="25" text-anchor="middle" fill="${green}">市场在给“会波动多少”报价</text>`,'IV 是波动预期的价格信号，曲线仅为示意','0 0 380 285'),where:'期权链里看 IV；它通常按年化口径显示。'},
+ {code:'Delta',label:'股价影响多大',title:'像价格影响的“音量旋钮”。',text:'股票小幅涨跌，期权价格大约会跟着变多少。它会随行情改变。',limit:'绝对值 0.20，不等于 80% 获利，也不保证不指派。',visual:svg(`<path d="M62 204a130 130 0 0 1 256 0" stroke="#bed6c5" fill="none" stroke-width="22" stroke-linecap="round"/><path d="M190 204 125 115" stroke="${green}" stroke-width="8" stroke-linecap="round"/><circle cx="190" cy="204" r="17" fill="${green}"/><text x="190" y="257" text-anchor="middle" font-size="25" fill="${green}">敏感度，不是获利保证</text>`,'Delta 如音量旋钮，是敏感度而不是胜率','0 0 380 285'),where:'期权链常显示买方 Delta；Put 通常为负，卖出后的敞口方向相反。'},
+ {code:'DTE',label:'还剩几天',title:'像合同上的“倒计时”。',text:'距离到期还有多少天。合同快结束时，风险不一定跟着变小。',limit:'越短不一定越省心；临近到期、股价又贴着行权价时要特别留意。',visual:`<div style="width:145px">${illustration('time')}</div><div class="metric-big">还有几天？</div>`,where:'在期权链查看到期日与 DTE；提前安排退出或履约。'},
+ {code:'Bid / Ask',label:'进出贵不贵',title:'像摊主的“收购价 / 卖价”。',text:'Bid 是买报价；Ask 是卖报价。两者差得大，进出可能更贵。',limit:'中间价不保证成交；有报价也不代表你能立即成交。',visual:`<div class="metric-big" style="font-size:38px">1.80 ↔ 2.20</div><p class="muted">示意：买报价　　卖报价</p><div style="width:80%;height:16px;border-radius:8px;background:#bed6c5"></div><p style="color:var(--green)">中间的差，可能是你的成本</p>`,where:'期权链里一起看 Bid、Ask、成交量与 OI。'}
+];
+$('metric-controls').innerHTML=metrics.map((m,i)=>`<button type="button" data-metric="${i}" aria-pressed="${i===0}"><b>${m.code}</b>${m.label}</button>`).join('');
+function renderMetric(i){const m=metrics[i];setPressed($('metric-controls'),'metric',i);$('metric-content').innerHTML=`<div class="metric-visual">${m.visual}</div><div><h3>${m.title}</h3><p style="margin-top:10px">${m.text}</p><div class="risk-line">${m.limit}</div><p class="tiny" style="margin-top:12px">${m.where}</p></div>`;}
+$('metric-controls').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderMetric(Number(b.dataset.metric))});
+const toolbox=[['RV / HV｜过去的天气记录','过去真正发生的波动。与 IV 比较要对齐周期与计算口径；过去平静，不保证未来平静。'],['DVOL｜加密市场的波动表','Deribit 加密资产约 30 天隐含波动率指数。它不是美股个股 IV，不用它代替你的合约报价。'],['Gamma｜旋钮变得多快','衡量 Delta 的变化速度。临近到期且接近行权价时，风险变化可能很快。'],['Theta｜时间沙漏','时间流逝对价格的影响。单腿卖方通常受益于时间衰减；绝非每天固定到账，股价变化可以盖过它。'],['Vega｜对保障涨价有多敏感','期权价格对 IV 变化的敏感度。其他条件不变时，IV 上升通常让空头期权买回更贵。'],['成交量 / OI｜客流 / 未结账订单','量：今天成交多少；OI：尚未结清多少。它们不等于盘口深度，也不保证成交。'],['IV Rank / Percentile｜历史温度比较','前者常看历史高低间的位置；后者常看低于当前值的历史占比。券商可能同名异义，要查公式。'],['均线｜后视镜','显示过去一段价格的平均水平。描述趋势，不保证下一步，也不能自动决定加仓或展期。'],['实值 / 时间价值｜合同现在值在哪','Put 股价低于行权价为实值；Call 相反。权利金含内在价值和时间价值，实值不等于整笔已经亏损。']];
+$('toolbox').innerHTML=toolbox.map(([a,b])=>`<div><h3>${a}</h3><p>${b}</p></div>`).join('');
+const risks=[
+ {name:'股票大跌',pic:'fall',headline:'收的那一点钱，可能挡不住大跌。',check:'还愿意持有吗？全账户损失承受得起吗？',act:'减小或平掉 Put；愿意接股才留足现金。持股怕跌可考虑保护。',cost:'平仓可能认亏；保费要花钱；止损价不保证成交。'},
+ {name:'IV 突然涨了',pic:'rise',headline:'股价没大动，买回价也可能变贵。',check:'财报或其他事件是否改变了风险？',act:'合看事件、价格和数量；不要因为“收得更多”就自动加卖。',cost:'退出可能确认亏损；等待也不保证 IV 回落。'},
+ {name:'财报／到期／除息',pic:'time',headline:'合同快结束，不代表可以不管。',check:'财报可能跳空；实值 Call 除息前需留意指派。',act:'提前决定退出或履约，查券商通知与资金。Put、Call 都可能提前指派。',cost:'平仓有成本；指派会变成买股或交股。'},
+ {name:'备兑遇到大涨',pic:'rise',headline:'股票涨很好，但你已经答应了卖价。',check:'能接受按约定价交股吗？',act:'接受履约；想留下股票，可评估买回 Call 的成本。',cost:'接受交股会少赚涨幅；买回可能很贵。'},
+ {name:'想退出却不顺',pic:'stop',headline:'你想买回，不代表有人按你想要的价卖。',check:'报价价差大吗？是否停牌？',act:'开仓前挑流动性较好的合约，控制数量；用限价并确认成交。',cost:'可能要让价，或一直没有成交。'},
+ {name:'几只一起跌',pic:'fall',headline:'买了几只同类股票，也可能一起受伤。',check:'所有 Put 同时指派，要准备多少钱？',act:'合算相关持仓与压力损失，减少承诺；别只按每张收款计算。',cost:'减少数量会少收权利金，但可以减少风险金额。'},
+ {name:'没时间处理',pic:'bell',headline:'交易不会等你有空，才出状况。',check:'异常或指派通知来了，能及时处理吗？',act:'安排提醒和处理时间；做不到，先留在纸面练习。',cost:'少做会错过一些收入；提醒本身不能消除风险。'}
+];
+$('risk-controls').innerHTML=risks.map((r,i)=>`<button type="button" data-risk="${i}" aria-pressed="${i===0}">${r.name}</button>`).join('');
+function renderRisk(i){const r=risks[i];setPressed($('risk-controls'),'risk',i);$('risk-content').innerHTML=`<div class="scenario-path"><div class="scenario-icon">${illustration(r.pic)}</div><p class="scenario-message">${r.headline}</p></div><div class="decision-tree"><div><small>① 先检查</small>${r.check}</div><span aria-hidden="true">↓</span><div><small>② 可以怎么做</small>${r.act}</div><span aria-hidden="true">↓</span><div><small>③ 付出什么代价</small>${r.cost}</div></div>`;}
+$('risk-controls').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderRisk(Number(b.dataset.risk))});
+const hedges=[
+ {name:'先看：只卖 Put',parts:[['卖 95 Put','收每股 2','']],desc:'有现金可以接股，但没有额外的下跌保护。',benefit:200,loss:9300,f:s=>(2-Math.max(95-s,0))*100,caption:'最多赚 200；股票归零可能亏 9,300。'},
+ {name:'Put 加一道保护',parts:[['卖 95 Put','收权利金',''],['买 85 Put','付保费','protect']],desc:'同标的、同到期、同数量。假设整套净收每股 1.50。代价：少收权利金。',benefit:150,loss:850,f:s=>(1.5-Math.max(95-s,0)+Math.max(85-s,0))*100,caption:'完整价差到期：最多亏 (95−85−1.50)×100 = 850。'},
+ {name:'持股 + 保护 Put',parts:[['持有 100 股','每股成本 100',''],['买 90 Put','每股付 3','protect']],desc:'花保费，给这 100 股买一段时间的下跌保护；上涨不封顶。',benefit:null,loss:1300,f:s=>(s-100-3+Math.max(90-s,0))*100,caption:'90 以上的下跌仍自己承担；保护只在有效期内存在。'},
+ {name:'领口 Collar',parts:[['持有 100 股','每股成本 100',''],['买 90 Put','每股付 3','protect'],['卖 110 Call','每股收 2','']],desc:'用 Call 收入补贴 Put 保费。本例净付每股 1；下跌有底，上涨也有顶。',benefit:900,loss:1100,f:s=>(s-100-1+Math.max(90-s,0)-Math.max(s-110,0))*100,caption:'本例到期最多亏 1,100，最多赚 900；并非每次都能免费买保护。'}
+];
+let hedgeIndex=0,price=70;
+$('hedge-controls').innerHTML=hedges.map((h,i)=>`<button type="button" data-hedge="${i}" aria-pressed="${i===0}">${h.name}</button>`).join('');
+function drawPayoff(){
+ const h=hedges[hedgeIndex],W=Math.max(280,Math.round($('payoff-chart').getBoundingClientRect().width)||540),H=280,L=70,R=18,T=30,B=42;
+ const vals=Array.from({length:131},(_,s)=>h.f(s));const lo=Math.min(...vals,0),hi=Math.max(...vals,0);const pad=(hi-lo)*.13||100;const min=lo-pad,max=hi+pad;
+ const sx=s=>L+s/130*(W-L-R),sy=v=>T+(max-v)/(max-min)*(H-T-B);
+ const path=vals.map((v,s)=>(s?'L':'M')+sx(s).toFixed(2)+','+sy(v).toFixed(2)).join(' ');
+ let bits=`<text x="${L}" y="16" font-size="12" fill="#60726b">到期总损益（美元）</text>`;
+ [lo,0,hi].filter((v,i,a)=>a.indexOf(v)===i).filter(v=>v===0||Math.abs(sy(v)-sy(0))>22).forEach(v=>{bits+=`<line x1="${L}" x2="${W-R}" y1="${sy(v)}" y2="${sy(v)}" stroke="#d7ded5"/><text x="${L-9}" y="${sy(v)+4}" text-anchor="end" font-size="12" fill="#60726b">${v.toLocaleString('en-US')}</text>`});
+ [0,70,130].forEach(s=>{bits+=`<text x="${sx(s)}" y="${H-23}" text-anchor="middle" font-size="12" fill="#60726b">${s}</text>`});
+ const y=h.f(price);bits+=`<path d="${path}" fill="none" stroke="${green}" stroke-width="4" stroke-linejoin="round"/><line x1="${sx(price)}" x2="${sx(price)}" y1="${T}" y2="${H-B}" stroke="#9baca1" stroke-dasharray="4 5"/><circle cx="${sx(price)}" cy="${sy(y)}" r="7" fill="${y<0?orange:green}" stroke="#fffefa" stroke-width="3"/><text x="${W-R}" y="${H-3}" text-anchor="end" font-size="12" fill="#60726b">到期股价（美元）</text>`;
+ $('payoff-chart').innerHTML=svg(bits,`${h.name}到期损益图；股价${price}时总损益${y}美元`,`0 0 ${W} ${H}`);
+ $('stock-price-output').textContent=money(price);$('payoff-number').textContent=(y>=0?'赚 ':'亏 ')+money(Math.abs(y));$('payoff-number').className='counter '+(y<0?'orange':'green');$('payoff-caption').textContent=h.caption;
+}
+function renderHedge(i){hedgeIndex=i;const h=hedges[i];setPressed($('hedge-controls'),'hedge',i);$('hedge-description').innerHTML=`<div class="combo">${h.parts.map((p,i)=>(i?'<span aria-hidden="true">＋</span>':'')+`<div class="contract ${p[2]}">${p[0]}<em>${p[1]}</em></div>`).join('')}</div><p>${h.desc}</p><p class="tiny">各按钮是独立教学例子，都是一组对应 100 股。不是实际合约推荐。</p>`;$('hedge-limits').innerHTML=`<div><small>本例最多赚 · 未计费用</small><div class="counter green">${h.benefit===null?'上涨不封顶':money(h.benefit)}</div></div><div><small>本例到期最多亏 · 未计费用</small><div class="counter orange">${money(h.loss)}</div></div>`;drawPayoff();}
+$('hedge-controls').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderHedge(Number(b.dataset.hedge))});
+$('stock-price').addEventListener('input',e=>{price=Number(e.target.value);drawPayoff()});
+$('protection-details').addEventListener('toggle',()=>{if($('protection-details').open)drawPayoff()});
+if('ResizeObserver' in window)new ResizeObserver(()=>{if(!$('panel-5').hidden&&$('protection-details').open)drawPayoff()}).observe($('payoff-chart'));
+const names=['一份承诺','钱的来去','交易六步','看仪表盘','遇事怎么办','怎样保护'];let page=0;
+function showPage(n,scroll=false){page=Math.min(5,Math.max(0,n));for(let i=0;i<6;i++){const active=i===page;$('panel-'+i).hidden=!active;$('tab-'+i).setAttribute('aria-selected',String(active));}$('previous').disabled=page===0;$('next').textContent=page===5?'回到第一张 ↺':'接着看：'+names[page+1]+' →';$('page-indicator').textContent=(page+1)+' / 6';if(page===5)drawPayoff();if(scroll)document.querySelector('.chapter-nav').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
+document.querySelector('.chapter-nav').addEventListener('click',e=>{const b=e.target.closest('button');if(b)showPage(Number(b.id.slice(4)))});
+document.querySelector('.chapter-nav').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();showPage((page+(e.key==='ArrowRight'?1:5))%6);$('tab-'+page).focus();}});
+$('previous').addEventListener('click',()=>showPage(page-1,true));$('next').addEventListener('click',()=>showPage(page===5?0:page+1,true));
+renderPromise('put');renderMoney('close50');renderStep(0);renderMetric(0);renderRisk(0);renderHedge(0);showPage(0);
+})();
+</script>
+</body>
+</html>
