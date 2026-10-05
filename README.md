@@ -18,6 +18,15 @@
 
 未取得完整口播；证据范围和补充来源见页面底部。“稳赢”不是盈利保证。新页面同样可以下载后离线使用。
 
+## 卖 Put · 从观察到记录
+
+- [打开图解与交易记录](https://boxizen.github.io/wiki/options/put-checklist.html)
+- [HTML 源文件](options/put-checklist.html)
+
+四章串起开仓前六项检查、IV与Greeks、持仓情景处理，以及可填写的交易记录。记录区分计划、持仓浮盈亏、平仓、到期作废和指派后的股票损益；支持JSON完整备份/恢复与CSV汇总。
+
+记录仅保存在当前设备的浏览器中，不会上传到GitHub，不连接券商、不提供行情或自动提醒。请定期导出备份。自动计算仅适用于每张100股、同条款单批现金担保Put；部分处理和多腿组合需另行核对。
+
 ## GitHub Pages
 
 发布源使用 `main` 分支的根目录 `/`：在仓库 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，分支选择 **main**，目录选择 **/(root)**，保存。
