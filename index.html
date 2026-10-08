@@ -1,8 +1,92 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Wiki · 学习图解</title>
-<style>body{margin:0;background:#f7f5ef;color:#22352f;font:18px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:720px;margin:10vh auto;padding:28px}small{color:#60726b}main .hero-title{font-size:clamp(32px,6vw,44px);font-weight:700;line-height:1.2;margin:18px 0 20px}a{display:block;background:#286b58;color:#fff;padding:22px 26px;border-radius:18px;text-decoration:none;margin-top:30px}.wiki-home a strong{display:block;font-size:24px;font-weight:700;line-height:1.7}a span{font-size:16px}a:focus-visible{outline:3px solid #70588d;outline-offset:5px}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Wiki · 期权交易与退休计划</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f7f5ef; color: #22352f; font: 18px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+    .wiki-home main { max-width: 816px; margin: 64px auto; padding: 0 28px; }
+    .wiki-home .brand { margin: 0; color: #60726b; font-size: 14px; letter-spacing: .07em; }
+    .wiki-home .hero-title { margin: 22px 0 18px; font-size: clamp(32px,6vw,44px); font-weight: 750; line-height: 1.2; }
+    .wiki-home .intro { margin: 0; color: #60726b; font-size: 17px; }
+    .wiki-home .directory { display: grid; gap: 26px; margin-top: 38px; }
+    .wiki-home .category { padding: 24px; border: 1px solid #d8e2d9; border-radius: 22px; background: #eaf0e8; }
+    .wiki-home .category.retire { background: #f1ece1; border-color: #e2dacb; }
+    .wiki-home .category-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .wiki-home .category-title { margin: 0; font-size: 26px; font-weight: 750; line-height: 1.3; }
+    .wiki-home .page-count { flex-shrink: 0; color: #60726b; font-size: 13px; }
+    .wiki-home .category-description { margin: 8px 0 20px; color: #60726b; font-size: 15px; }
+    .wiki-home .entries { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .wiki-home .entry { display: flex; align-items: center; gap: 20px; min-height: 104px; padding: 20px 22px; border: 1px solid #d8e2d9; border-radius: 14px; background: #fffefa; color: inherit; text-decoration: none; }
+    .wiki-home .entry:hover { border-color: #286b58; background: #fff; }
+    .wiki-home .entry:focus-visible { outline: 3px solid #70588d; outline-offset: 4px; }
+    .wiki-home .entry-copy { flex: 1; min-width: 0; }
+    .wiki-home .entry-title { margin: 0; color: #286b58; font-size: 21px; font-weight: 700; line-height: 1.4; }
+    .wiki-home .entry-description { margin: 7px 0 0; color: #60726b; font-size: 15px; line-height: 1.65; }
+    .wiki-home .entry-arrow { flex-shrink: 0; color: #286b58; font-size: 25px; font-weight: 600; }
+    .wiki-home footer { margin-top: 28px; color: #60726b; font-size: 13px; }
+    @media (max-width: 540px) {
+      .wiki-home main { margin: 34px auto; padding: 0 20px; }
+      .wiki-home .directory { margin-top: 28px; gap: 20px; }
+      .wiki-home .category { padding: 20px 16px; border-radius: 18px; }
+      .wiki-home .category-title { font-size: 24px; }
+      .wiki-home .entry { padding: 18px 16px; gap: 12px; }
+      .wiki-home .entry-title { font-size: 19px; }
+      .wiki-home .entry-description { font-size: 14px; }
+    }
+  </style>
 </head>
-<body class="wiki-home"><main><small>BOXIZEN / WIKI</small><h1 class="hero-title">学会判断，<br>留下依据。</h1><p>投资学习、交易记录与家庭退休计划。<br>把知识用起来，再回头看自己的决定。</p><a href="./options/"><strong>期权卖方实操指南 →</strong><span>开仓检查、持仓处理、Put与备兑Call案例、保护代价与指标速查。</span></a><a href="./options/put-decision.html"><strong>Put 决策档案 →</strong><span>封存判断、分笔登记成交、生成AI分析材料，完成一笔交易的复盘。</span></a><a href="./retire/"><strong>退休计划 →</strong><span>家庭资产盘点、现金流测算、风险保障与半退休行动路线。</span></a></main></body></html>
+<body class="wiki-home">
+  <main>
+    <header>
+      <p class="brand">BOXIZEN / WIKI</p>
+      <h1 class="hero-title">学会判断，<br>留下依据。</h1>
+      <p class="intro">把知识用起来，再回头看自己的决定。</p>
+    </header>
+    <div class="directory">
+      <section class="category" aria-labelledby="options-title">
+        <div class="category-heading">
+          <h2 class="category-title" id="options-title">期权交易</h2>
+          <span class="page-count">2 个页面</span>
+        </div>
+        <p class="category-description">学习交易策略，记录每一次判断。</p>
+        <ul class="entries">
+          <li><a class="entry" href="./options/">
+            <div class="entry-copy">
+              <h3 class="entry-title">期权卖方实操指南</h3>
+              <p class="entry-description">开仓检查、持仓处理、Put 与备兑 Call 案例、保护代价与指标速查。</p>
+            </div>
+            <span class="entry-arrow" aria-hidden="true">→</span>
+          </a></li>
+          <li><a class="entry" href="./options/put-decision.html">
+            <div class="entry-copy">
+              <h3 class="entry-title">Put 决策档案</h3>
+              <p class="entry-description">封存判断、分笔记成交、生成 AI 分析材料，完成一笔交易的复盘。</p>
+            </div>
+            <span class="entry-arrow" aria-hidden="true">→</span>
+          </a></li>
+        </ul>
+      </section>
+      <section class="category retire" aria-labelledby="retire-title">
+        <div class="category-heading">
+          <h2 class="category-title" id="retire-title">退休计划</h2>
+          <span class="page-count">1 个页面</span>
+        </div>
+        <p class="category-description">理清家庭资产，逐步安排想要的生活。</p>
+        <ul class="entries">
+          <li><a class="entry" href="./retire/">
+            <div class="entry-copy">
+              <h3 class="entry-title">家庭资产与半退休规划</h3>
+              <p class="entry-description">资产盘点、现金流测算、风险保障与半退休行动路线。</p>
+            </div>
+            <span class="entry-arrow" aria-hidden="true">→</span>
+          </a></li>
+        </ul>
+      </section>
+    </div>
+    <footer>按主题整理，持续积累。</footer>
+  </main>
+</body>
+</html>
